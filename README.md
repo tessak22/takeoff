@@ -8,8 +8,10 @@ This theme uses Underscores, a lean starter theme for WordPress, as well as Boot
 ## Things you should know
 
 **Bootstrap**
-This theme includes Bootstrap 3
+
+This theme includes [Bootstrap 3.3.7](https://getbootstrap.com/docs/3.3/)
 
 **Advanced Custom Fields**
-The features used in this theme require an Advanced Custom Fields Pro license. Sure, you can use it without it, but there is a built in page builder that will be useless without a license. Believe me, it's an expense that is well worth it.
+
+The features used in this theme require an [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro/#pricing-table) license. Sure, you can use it without it, but there is a built in page builder that will be useless without a license. Believe me, it's an expense that is well worth it.
 
