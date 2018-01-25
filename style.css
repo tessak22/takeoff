@@ -50,23 +50,29 @@ make it look nice. After that, you can add your own custom CSS. */
 .gallery-columns-8 .gallery-item {max-width: 12.5%;}
 .gallery-columns-9 .gallery-item {max-width: 11.11%;}
 .gallery-caption {display: block;}
+/*--------------------------------------------------------------
+## Comments
+--------------------------------------------------------------*/
+.comment-list, .comment-list .children {list-style-type: none;}
+.comment-list .children .comment-body {background: #f7f8f9; padding: 25px; margin-bottom: 30px;}
+.comment-body {padding: 15px 0;}
+.comment-author-avatar {float: left; width: 70px;}
+.comment-content {margin-left: 100px;}
+.comment-respond label {display: block;}
+.comment .depth-2 {padding-left: 15px;}
+.comment .depth-3 {padding-left: 30px;}
+.comment .depth-4 {padding-left: 45px;}
 
 /*--------------------------------------------------------------
-## Take Off Added Styles
+## Page Builder Styles
 --------------------------------------------------------------*/
-
-/*-------------- Global Styles --------------*/
-body {padding-top: 70px;}
-
-/*-------------- Reusable Layout Styles --------------*/
+/* Reusable Page Builder Styles*/
 .flex {display: flex;}
 @media only screen and (max-width: 767px) {.flex {display: block;}}
 .cover-image {background-repeat: no-repeat; background-size: cover;	background-attachment: fixed;}
-
-/*-------------- Responsive Layout Styles --------------*/
 .tablet-only {display: none;}
 @media only screen and (max-width: 767px) {.tablet-only {display: block;}}
-/*-------------- Page Builder Styles --------------*/
+
 /* Hero with CTA */
 .hero_with_cta {padding: 200px 0; color: #fff;}
 
@@ -76,5 +82,13 @@ body {padding-top: 70px;}
 
 /* Centered Paragraph with Title */
 .centered_paragraph_with_title {padding: 50px 0;}
+
+/*--------------------------------------------------------------
+## Takeoff Added Styles
+--------------------------------------------------------------*/
+
+/*-------------- Global Styles --------------*/
+body {padding-top: 70px;}
+
 
 

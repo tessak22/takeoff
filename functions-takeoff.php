@@ -231,6 +231,71 @@ function takeoff_get_the_alternate_title($post = 0)
     return apply_filters('the_title', $title, $id);
 }
 
+/**
+ * Comments Callback / Layout of the Comments List
+ */
+function takeoff_comments_callback($comment, $args, $depth){
+   //checks if were using a div or ol|ul for our output
+   $tag = ( 'div' === $args['style'] ) ? 'div' : 'li';
+?>
+    <<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( $args['has_children'] ? 'parent' : '', $comment ); ?>>
+     <article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
+        <div class="comment-author-avatar">
+            <?php if ( 0 != $args['avatar_size'] ) echo get_avatar( $comment, $args['avatar_size'] ); ?>
+        </div>
+        <div class="comment-content">
+            <div class="comment-author-name">
+                <?php printf( __( '%s ' ), sprintf( '<b class="fn">%s</b>', get_comment_author_link( $comment ) ) ); ?>
+            </div>
+            <div class="comment-meta">
+                <time datetime="<?php comment_time( 'c' ); ?>">
+                    <?php
+                       /* translators: 1: comment date, 2: comment time */
+                       printf( __( '%1$s' ), get_comment_date( '', $comment ), get_comment_time() );
+                    ?>
+                </time> 
+                <p><?php edit_comment_link( __( 'Edit' ), '<span class="edit-link">', '</span>' ); ?></p>
+                <?php if ( '0' == $comment->comment_approved ) : ?>
+                    <p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.' ); ?></p>
+                <?php endif; ?>
+            </div>
+
+            <div class="comment-details">
+                <?php comment_text(); ?>
+            </div><!-- .comment-content -->
+            <div class="comment-reply">
+                <?php
+                    comment_reply_link( array_merge( $args, array(
+                       'add_below' => 'div-comment',
+                       'depth'     => $depth,
+                       'max_depth' => $args['max_depth'],
+                       'before'    => '<p class="reply call-to-action">',
+                       'after'     => '</p>'
+                    ) ) );
+                ?>
+            </div>
+        </div>
+     </article><!-- .comment-body -->
+     <?php
+}
+/**
+ * Move Comment Field below Name & Email
+ */
+function takeoff_move_comment_field_to_bottom( $fields ) {
+$comment_field = $fields['comment'];
+unset( $fields['comment'] );
+$fields['comment'] = $comment_field;
+return $fields;
+}
+add_filter( 'comment_form_fields', 'takeoff_move_comment_field_to_bottom' );
+/**
+ * Edit comment notification for non-logged in users
+ */
+function takeoff_pre_comment_text( $arg ) {
+  $arg['comment_notes_before'] = "Your email address will not be published.";
+  return $arg;
+}
+add_filter( 'comment_form_defaults', 'takeoff_pre_comment_text' );
 
 /**
  * Add ACF Options for Theme Settings

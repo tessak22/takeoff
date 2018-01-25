@@ -26,6 +26,12 @@ $article_title = takeoff_get_the_alternate_title();
 
     <?php the_content(); ?>
 
+    <?php
+        if ('post' == get_post_type()) {
+            get_template_part('author', 'meta');
+        }
+    ?>
+
     <?php comments_template(); ?>
 
 </article>
