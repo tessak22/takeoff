@@ -14,25 +14,32 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+<div class="document-header container-fluid">
+	<div class="row">
+		<div class="page-title col-sm-12">
+			<h1><?php the_title(); ?></h1>
+		</div>
+	</div>
+</div>
 
+<section class="main-content container">
+	<div class="row">
+		<div class="content col-sm-12" role="main">
+			<?php get_template_part('variant', 'before-content'); ?>
 			<?php
-			while ( have_posts() ) : the_post();
-
-				get_template_part( 'template-parts/content', 'page' );
-
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
-
-			endwhile; // End of the loop.
+			  while (have_posts()) {
+			      the_post();
+			      get_template_part('template-parts/content');
+			  }
 			?>
+			<?php get_template_part('variant', 'after-content'); ?>
+		</div>
+	</div>
+</section>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
 
-<?php
-get_sidebar();
-get_footer();
+<?php //each page builder has its own section
+	get_template_part('inc', 'page-builder'); 
+?>
+
+<?php get_footer(); ?>

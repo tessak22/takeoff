@@ -15,3 +15,14 @@ This theme includes [Bootstrap 3.3.7](https://getbootstrap.com/docs/3.3/)
 
 The features used in this theme require an [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro/#pricing-table) license. Sure, you can use it without it, but there is a built in page builder that will be useless without a license. Believe me, it's an expense that is well worth it.
 
+## File Breakdown
+
+#### header.php
+
+**Google Fonts**
+
+*takeoff_google_fonts* includes a function for bringing in Google fonts, edit this line to add your own Google fonts, or do not include any at all. The format should look something like this:
+
+`<?php takeoff_google_fonts('Montserrat:300,700|Lato:400'); ?>`
+
+Replacing with your fonts and weights. Font Name:Weight|SecondFontName:Weight.
